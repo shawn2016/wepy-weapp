@@ -17,6 +17,9 @@
 </style>
 <template>
   <view class="container">
+      <i-modal title="标题" visible="{{ true }}" show-ok="{{true}}" ok-text="好样的" show-cancel="{{false}}">
+  <view>已经成功引用了iview样式</view>
+</i-modal>
     <view class="userinfo" @tap="handleViewTap">
       <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
       <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
@@ -92,7 +95,10 @@
 
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: 'test'
+      navigationBarTitleText: 'test',
+      usingComponents: {
+          'i-modal': '../ui/modal/index'
+          }
     }
     components = {
       panel: Panel,
